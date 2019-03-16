@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id "nebula.dependency-recommender" version "5.1.0"
+}
+
+group 'me.kupchenko'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencyRecommendations {
+//    propertiesFile uri: 'http://somewhere/extlib.properties', name: 'myprops'
+    propertiesFile file: project.rootProject.file('recommendations.properties') , name: 'myprops'
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    nebulaRecommenderBom 'org.springframework:spring-framework-bom:4.3.8.RELEASE@pom'
+    compile 'org.springframework:spring-core' // no version, version is recommended
+    compile 'org.springframework:spring-context' // no version, version is recommended
+    compile 'commons-lang:commons-lang:2.6' // I know what I want, don't recommend
+    compile project.recommend('org.projectlombok:lombok', 'myprops') // source the recommendation from the provider named myprops'
+}

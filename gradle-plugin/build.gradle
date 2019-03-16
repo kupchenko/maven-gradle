@@ -1,0 +1,24 @@
+plugins {
+    id 'groovy'
+    id 'java-gradle-plugin'
+}
+
+repositories {
+    jcenter()
+}
+
+gradlePlugin {
+    plugins {
+        testPlugin {
+            id = 'me.kupchenko.test-plugin'
+            implementationClass = 'me.kupchenko.TestPlugin'
+        }
+    }
+}
+
+group = 'me.kupchenko'
+version = '0.1'
+
+dependencies {
+    compile gradleApi()
+}

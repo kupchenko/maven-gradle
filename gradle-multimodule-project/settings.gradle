@@ -1,0 +1,3 @@
+rootProject.name = 'gradle-multimodule-project'
+include 'gradle-multimodule-project-api', 'gradle-multimodule-project-impl'
+

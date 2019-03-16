@@ -1,0 +1,28 @@
+buildscript {
+    dependencies {
+        classpath 'me.kupchenko:gradle-plugin:0.1'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'groovy'
+//    id 'me.kupchenko.test-plugin' // -- not working for some reason
+}
+
+apply plugin: 'me.kupchenko.test-plugin'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+pluginExtension {
+    fail = true
+    words = []
+}
+
+compileGroovy.dependsOn pluginTask

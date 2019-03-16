@@ -1,0 +1,13 @@
+subprojects {
+    apply plugin: 'java'
+    group 'me.kupchenko'
+    version '1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+    sourceCompatibility = 1.8
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
+}
